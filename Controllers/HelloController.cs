@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using com.persephony.api;
-using com.persephony.percl;
-using com.persephony;
-using com.persephony.webhooks;
+using com.freeclimb.percl;
+using com.freeclimb.webhooks.call;
+
 
 namespace GettingStarted.Controllers
 {
@@ -12,20 +11,19 @@ namespace GettingStarted.Controllers
     {
         // POST voice/
         [HttpPost]
-        public string Post(PersyRequest request)
+        public string Post(CallStatusCallback request)
         {
           // Create a PerCl script
           PerCLScript helloScript = new PerCLScript();
 
           // Create a Say Command
           Say sayHello = new Say();
-          sayHello.setText("Hello, Persephony!");
-          sayHello.setLanguage(com.persephony.ELanguage.EnglishUS);
+          sayHello.setText("Hello, FreeClimb!");
 
           // Add the command
           helloScript.Add(sayHello);
 
-          // Respon to Persephony with your script
+          // Respond to FreeClimb with your script
           return helloScript.toJson();
         }
     }
