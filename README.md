@@ -1,6 +1,6 @@
 # C# - Getting Started Tutorial
 
-This project serves as a guide to help you build an application with FreeClimb. View this tutorial on [FreeClimb.com](https://docs.freeclimb.com/docs/c-sdk-quickstart). Specifically, the project will:
+This project serves as a guide to help you build an application with FreeClimb. View this tutorial on [FreeClimb.com](https://docs.freeclimb.com/docs/c-voice-calling-quickstart). Specifically, the project will:
 
 - Accept an incoming call and respond with a PerCL command
 
