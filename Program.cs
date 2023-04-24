@@ -22,10 +22,10 @@ app.MapControllers();
 
 Console.WriteLine("Welcome to FreeClimb!\n");
 Console.WriteLine("Your web server is listening at http://127.0.0.1:5027");
-Console.WriteLine("View an example PerCL JSON responose to FreeClimb at http://127.0.0.1:5027/swagger/index.html\n");
+Console.WriteLine("View an example PerCL JSON response to FreeClimb at http://127.0.0.1:5027/swagger/index.html\n");
 Console.WriteLine("Your NEXT STEP is to use NGROK to proxy HTTP traffic to this local web server.");
 Console.WriteLine("\t1. In NGROK, configure the dynamic url to proxy to http://127.0.0.1:5027");
-Console.WriteLine("\t2. Using the Dashboard or PAI, set your FreeClimb Application Voice Url to the dynamic endpoint NGROK generated\n");
+Console.WriteLine("\t2. Using the Dashboard or API, set your FreeClimb Application Voice Url to the dynamic endpoint NGROK generated\n");
 
 app.Run();
 
