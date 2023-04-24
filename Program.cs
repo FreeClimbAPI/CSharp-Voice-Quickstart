@@ -1,24 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+﻿var builder = WebApplication.CreateBuilder(args);
 
-namespace GettingStarted
+// Add services to the container.
+
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateWebHostBuilder(args).Build().Run();
-        }
-
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
-    }
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+Console.WriteLine("Welcome to FreeClimb!\n");
+Console.WriteLine("Your web server is listening at http://127.0.0.1:5027");
+Console.WriteLine("View an example PerCL JSON responose to FreeClimb at http://127.0.0.1:5027/swagger/index.html\n");
+Console.WriteLine("Your NEXT STEP is to use NGROK to proxy HTTP traffic to this local web server.");
+Console.WriteLine("\t1. In NGROK, configure the dynamic url to proxy to http://127.0.0.1:5027");
+Console.WriteLine("\t2. Using the Dashboard or PAI, set your FreeClimb Application Voice Url to the dynamic endpoint NGROK generated\n");
+
+app.Run();
+
