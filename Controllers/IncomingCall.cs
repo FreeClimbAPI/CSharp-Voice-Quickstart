@@ -23,10 +23,9 @@ public class IncomingCallController : ControllerBase
 
         // Create Say Command
         Say SayHelloWorld = new Say("Hello, World!");
-        Console.WriteLine(SayHelloWorld.ToJson());
+
         // Add Command to PerCL Script
         HelloWorldScript.Commands.Add(SayHelloWorld);
-        Console.WriteLine(HelloWorldScript.ToJson());
 
         // Respond to FreeClimb with PerCL Script
         return HelloWorldScript.ToJson();
