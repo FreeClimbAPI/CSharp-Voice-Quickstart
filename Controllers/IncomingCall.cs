@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using com.freeclimb.percl;
+using freeclimb.Model;
 
 namespace VoiceQuickstart.Controllers;
 
@@ -19,17 +19,16 @@ public class IncomingCallController : ControllerBase
     public string Post()
     {
         // Create PerCL Script
-        PerCLScript HelloWorldScript = new PerCLScript();
+        PerclScript HelloWorldScript = new PerclScript(new List<PerclCommand>());
 
         // Create Say Command
-        Say SayHelloWorld = new Say();
-        SayHelloWorld.setText("Hello, World!");
+        Say SayHelloWorld = new Say("Hello, World!");
 
         // Add Command to PerCL Script
-        HelloWorldScript.Add(SayHelloWorld);
+        HelloWorldScript.Commands.Add(SayHelloWorld);
 
         // Respond to FreeClimb with PerCL Script
-        return HelloWorldScript.toJson();
+        return HelloWorldScript.ToJson();
     }
 }
 
