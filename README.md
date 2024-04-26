@@ -31,7 +31,7 @@ We offer a [C# Voice Quickstart Tutorial](https://docs.freeclimb.com/docs/c-voic
 1. Install the required packages
 
    ```bash
-   dotnet add package freeclimb-cs-sdk
+   dotnet add package freeclimb
    ```
 2. Make your local server publicly accessible
     ```bash
