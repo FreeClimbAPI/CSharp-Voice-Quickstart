@@ -31,15 +31,13 @@ We offer a [C# Voice Quickstart Tutorial](https://docs.freeclimb.com/docs/c-voic
 1. Install the required packages
 
    ```bash
-   dotnet add package freeclimb-cs-sdk
+   dotnet add package freeclimb
    ```
-
-2. Configure environment variables:
-
-   | ENV VARIABLE | DESCRIPTION                                                                                                                            |
-   | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-   | ACCOUNT_ID   | Account ID which can be found under [API credentials](https://www.freeclimb.com/dashboard/portal/account/authentication) in dashboard. |
-   | API_KEY      | API key which can be found under [API credentials](https://www.freeclimb.com/dashboard/portal/account/authentication) in dashboard.    |
+2. Make your local server publicly accessible
+    ```bash
+    ngrok http 3000
+    ```
+    Once you run ngrok you should receive a response with a public URL, that looks something like 'https://ba1c-63-209-137-19.ngrok-free.app'. 
 
 3. [Configure your applications's endpoints](https://docs.freeclimb.com/docs/registering-and-configuring-an-application#configure-your-application) by adding a publicly accessible URL (we recommend an [ngrok](https://ngrok.com/download) URL) and the route reference `/incomingCall` to your App Config's VoiceURL:
 
@@ -52,10 +50,24 @@ We offer a [C# Voice Quickstart Tutorial](https://docs.freeclimb.com/docs/c-voic
 1. Start your voice quickstart application
 
    ```bash
-   dotnet run
+   dotnet run --urls=http://127.0.0.1:3000
    ```
 
 2. Call the FreeClimb number assigned to the application you've configured for this tutorial
+
+## Using Docker to Run the Quickstart
+
+1. Pull docker image from dockerhub
+
+   ```bash
+   docker pull freeclimbapi/csharp-voice-quickstart
+   ```
+
+2. Run docker image
+
+   ```bash
+   docker run -p 3000:3000 freeclimbapi/csharp-voice-quickstart
+   ```
 
 ## Feedback & Issues
 
